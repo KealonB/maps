@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#122925">
+<title>Turner Historical Homesite Map — 1997 ↔ 2024</title>
+<style>
+:root{--bg:#0c1514;--ink:#f4f9f5;--muted:#aabbb2;--edge:#29433b;--accent:#bce7a8;--panel:#172924;--gold:#ffce76}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{min-height:100dvh}
+header{min-height:65px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 20px;border-bottom:1px solid var(--edge);background:#14251f}
+.brand{font-size:18px;font-weight:800;letter-spacing:-.4px}.sub{font-size:11px;color:var(--muted);margin-top:1px}.chip{border:1px solid #3b5749;border-radius:25px;padding:5px 10px;color:#ceded2;font-size:11px;white-space:nowrap}
+.shell{display:grid;grid-template-columns:355px 1fr;min-height:calc(100dvh - 65px)}aside{background:#13221e;border-right:1px solid var(--edge);overflow:auto;max-height:calc(100dvh - 65px)}.panel{padding:18px 19px;border-bottom:1px solid var(--edge)}.label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:800}h2{font-size:17px;margin:6px 0 8px}p{margin:7px 0;color:var(--muted);font-size:12px;line-height:1.55}button,a.button{border:1px solid #54705d;border-radius:9px;background:#244238;color:var(--ink);padding:9px 12px;min-height:39px;font:700 12px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:center;cursor:pointer;text-decoration:none}button:active{transform:translateY(1px)}button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}button.primary{background:#bce7a8;color:#183522;border-color:#bce7a8}button.minor{background:transparent}button:disabled{opacity:.5}.buttons{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0}.buttons button{flex:1}.sm{font-size:11px;color:var(--muted)}input,textarea{background:#0e1d19;border:1px solid #38594b;color:#fff;border-radius:9px;width:100%;padding:10px;font-size:13px}textarea{height:74px;resize:vertical}input[type=range]{accent-color:var(--accent);padding:0}label{font-weight:700;display:block;font-size:12px;margin:10px 0 4px}a{color:#c5f0aa}.links a{display:block;padding:5px 0;font-size:12px}.status{background:#203a2d;border-left:3px solid var(--accent);padding:9px 11px;color:#d8e8db;font-size:12px;border-radius:3px;margin:9px 0}.warn{background:#493823;border-color:var(--gold);color:#f6e4bc}.item{border:1px solid var(--edge);padding:10px;border-radius:10px;margin-top:8px;background:#192e27}.item strong{font-size:13px}.item .sm{margin:3px 0}
+main{position:relative;min-height:550px}#map{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#31443c,#1a2925);touch-action:none;overflow:hidden;cursor:grab;user-select:none}#map.dragging{cursor:grabbing}.tilepane{position:absolute;inset:0;overflow:hidden;pointer-events:none}.tilepane img{position:absolute;width:256px;height:256px;max-width:none;image-rendering:auto;pointer-events:none}.tilepane.modern{z-index:2}.tilepane.old{z-index:3}.tilepane.streets{z-index:1}#markerLayer{position:absolute;inset:0;z-index:8;pointer-events:none}.pin{position:absolute;width:16px;height:16px;border-radius:50%;background:var(--gold);border:2px solid white;transform:translate(-50%,-50%);box-shadow:0 0 0 3px #0005}.pin.saved{width:13px;height:13px;background:#e7a86e}.map-controls{position:absolute;z-index:15;top:14px;right:14px;display:flex;flex-direction:column;gap:7px}.map-controls button{width:43px;height:43px;padding:0;font-size:23px;background:#12261fe9;backdrop-filter:blur(6px)}.map-footer{position:absolute;bottom:0;left:0;right:0;z-index:12;pointer-events:none;padding:24px 15px max(12px,env(safe-area-inset-bottom));background:linear-gradient(transparent,#12241fd9);display:flex;align-items:end;justify-content:space-between;gap:12px}.map-footer>span{font-size:11px;text-shadow:0 1px 2px #000;color:white}.map-notice{position:absolute;left:12px;top:12px;z-index:11;max-width:min(325px,calc(100% - 82px));border:1px solid #3d6251;border-radius:10px;background:#112720ed;box-shadow:0 6px 30px #0007;padding:11px 13px;color:white;font-size:12px}.map-notice a{display:block;margin-top:7px}.map-top{font-weight:800;font-size:13px;margin-bottom:3px}.map-notice.good{max-width:260px;padding:9px 12px}.map-notice.good .message{color:#c9dcd0}#coords{font-variant-numeric:tabular-nums}.mobile-bar{display:none}.attribution{position:absolute;right:7px;bottom:3px;z-index:14;color:white;font-size:9px;text-shadow:1px 1px #000;pointer-events:none}.attribLink{color:inherit}#parcelBox{display:none;margin-top:10px}.fine{font-size:10px;color:#a6b9ac}
+@media(max-width:800px){header{padding:10px 12px;min-height:57px}.brand{font-size:16px}.chip{display:none}.shell{display:flex;flex-direction:column}aside{max-height:none;border:0;order:2}main{order:1;min-height:0;height:58dvh;max-height:640px;flex:none}.mobile-bar{display:flex;position:absolute;bottom:18px;left:12px;right:12px;z-index:14;flex-wrap:wrap;gap:6px;pointer-events:none}.mobile-bar button{pointer-events:auto;background:#132920e8;flex:1;min-width:75px}.map-footer{bottom:45px}.map-controls{top:12px;right:12px}.map-controls button{width:40px;height:40px}.map-notice{max-width:calc(100% - 70px)}.panel{padding:16px}.mobile-fade{display:block!important;position:absolute;bottom:74px;left:15px;right:15px;z-index:15;background:#12281fe8;border-radius:11px;padding:10px 13px;box-shadow:0 5px 16px #0007}.mobile-fade .inline-label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:5px}.mobile-fade input{width:100%} }
+.mobile-fade{display:none}
+</style>
+</head>
+<body>
+<header><div><div class="brand">TURNER <span style="color:var(--accent)">/</span> Then & Now</div><div class="sub">Historic homesite research • Kansas City, Kansas</div></div><div class="chip">V2 • no external mapping library</div></header>
+<div class="shell">
+<aside>
+<section class="panel">
+<div class="label">01 / Compare aerials</div><h2>1997 ↔ 2024</h2>
+<p>Drag the map to explore Turner. The two aerials come from Wyandotte County's publicly listed ArcGIS tile services; the street map underneath is a fallback.</p>
+<label for="fade">1997 overlay <span id="pct">50%</span></label><input id="fade" type="range" min="0" max="100" step="5" value="50">
+<div class="buttons"><button id="viewNew">2024 only</button><button id="viewOld">1997 only</button><button id="viewBlend">Split the difference</button></div>
+<div class="buttons"><button data-go="turner">Turner</button><button data-go="gibbs">Gibbs Road area</button><button data-go="pierson">Pierson Park</button></div>
+<p class="fine">1997 aerial is 1-meter imagery; individual small buildings may be hard to identify. These two years do not establish whether a home existed in 1885.</p>
+</section>
+<section class="panel">
+<div class="label">02 / Check a location</div><h2>Tap the map</h2><p>Tap a possible former homesite to see coordinates and request today's parcel record. This depends on the county parcel service allowing requests from your browser.</p>
+<div id="lookupStatus" class="status">Select a spot to investigate.</div>
+<div id="parcelBox"><strong id="parcelHeading"></strong><p id="parcelDetail"></p><label for="note">Your observations</label><textarea id="note" placeholder="Possible old driveway, demolished home, mature trees..."></textarea><div class="buttons"><button class="primary" id="save">Save location</button><a class="button" target="_blank" rel="noopener" href="https://appr.wycokck.org/">County property lookup ↗</a></div></div>
+</section>
+<section class="panel">
+<div class="label">03 / Research list</div><h2>Saved locations (<span id="count">0</span>)</h2><div id="list"><p>No sites saved yet.</p></div><div class="buttons"><button class="primary" id="csv">Export CSV</button><button id="wipe" class="minor">Clear all</button></div><p class="fine">Saved on this browser when storage is available. Export CSV before switching devices.</p>
+</section>
+<section class="panel"><div class="label">04 / 1885 and 1941</div><h2>Other historical evidence</h2><p>The 1885 Edwards landownership map and 1941 aerial scans are historical research sources, <strong>not</strong> precise overlays in this version. No former home locations have been verified yet.</p>
+<div class="links">
+<a href="https://www.loc.gov/item/2012593083/" target="_blank" rel="noopener">1885 Edwards map — Library of Congress ↗</a>
+<a href="https://gisapp.wycokck.org/gisdata/aerial/1941/1941_INDEX.TIF" target="_blank" rel="noopener">1941 Wyandotte aerial index (TIFF) ↗</a>
+<a href="https://www.wycokck.org/Departments/Maps-and-GIS" target="_blank" rel="noopener">Wyandotte County GIS ↗</a>
+<a href="https://appr.wycokck.org/" target="_blank" rel="noopener">County appraiser / property records ↗</a>
+</div></section>
+<section class="panel"><div class="label">05 / Contact owners</div><h2>Request permission first</h2><p>Use county records to verify the owner and mailing address. Ask for written permission before entering private property or digging. Public land, schools and historical sites may have special restrictions.</p><button id="copyLetter">Copy a permission request</button><p id="letterStatus" class="fine"></p></section>
+</aside>
+<main><div id="map" role="application" aria-label="Interactive aerial comparison map of Turner, Kansas City, Kansas"><div class="tilepane streets" id="osm"></div><div class="tilepane modern" id="new"></div><div class="tilepane old" id="old"></div><div id="markerLayer"></div></div>
+<div class="map-controls"><button id="plus" aria-label="Zoom in">+</button><button id="minus" aria-label="Zoom out">−</button><button id="street" aria-label="Toggle streets">▤</button></div>
+<div class="map-notice" id="mapNotice"><div class="map-top">Loading Turner map…</div><div class="message">If the map stays blank, open this HTML through a regular web browser or host it on GitHub Pages. ChatGPT's file preview may block interactive scripts.</div><a target="_blank" rel="noopener" href="https://www.openstreetmap.org/#map=14/39.0778/-94.7035">Open a standard Turner street map ↗</a></div>
+<div class="mobile-fade"><div class="inline-label"><span>1997 aerial overlay</span><b id="mobilePct">50%</b></div><input id="mobileFade" type="range" min="0" max="100" step="5" value="50" aria-label="1997 aerial opacity"></div>
+<div class="mobile-bar"><button data-go="turner">Turner</button><button data-go="gibbs">Gibbs Rd</button><button data-go="pierson">Pierson Park</button></div>
+<div class="map-footer"><span id="coords">39.07780, -94.70350</span><span>Drag • pinch • tap to research</span></div>
+<div class="attribution">Imagery © Unified Government of Wyandotte County / KCK • Street data © OpenStreetMap contributors</div>
+</main></div>
+<script>
+'use strict';
+(function(){
+const by=id=>document.getElementById(id), T=256, MINZ=11,MAXZ=19;
+const state={lat:39.0778,lon:-94.7035,z:14,alpha:.5,streets:true};
+const storageKey='turner_homesites_v2',m=by('map');
+const configurations=[
+ {el:by('osm'),name:'Street map',url:(z,x,y)=>`https://tile.openstreetmap.org/${z}/${x}/${y}.png`,tiles:new Map(),ok:0,errors:0,active:true},
+ {el:by('new'),name:'2024 aerial',url:(z,x,y)=>`https://tiles.arcgis.com/tiles/Qo2HHQp8vgPs2wg3/arcgis/rest/services/i2024_v7/MapServer/tile/${z}/${y}/${x}`,tiles:new Map(),ok:0,errors:0,active:true},
+ {el:by('old'),name:'1997 aerial',url:(z,x,y)=>`https://tiles.arcgis.com/tiles/Qo2HHQp8vgPs2wg3/arcgis/rest/services/Aerial_Photos_1997/MapServer/tile/${z}/${y}/${x}`,tiles:new Map(),ok:0,errors:0,active:true}
+];
+const e={osm:configurations[0],modern:configurations[1],old:configurations[2]};
+let firstTile=false,lastSelection=null,sites=[],temp=null,renderQueued=false,dragged=false,pointerMap=new Map(),movementTotal=0,gestureSize=0,gestures=0,showStreets=true;
+try{let v=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(v))sites=v;}catch(_){}
+function clamp(n,lo,hi){return Math.min(hi,Math.max(lo,n))}
+function latLngToPixel(lat,lon,z){const s=T*Math.pow(2,z),r=clamp(lat,-85.051,85.051)*Math.PI/180;return {x:(lon+180)/360*s,y:(1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*s}}
+function pixelToLatLng(x,y,z){const s=T*Math.pow(2,z),v=Math.PI*(1-2*y/s);return {lon:(x/s)*360-180,lat:180/Math.PI*Math.atan(Math.sinh(v))}}
+function dimensions(){return {w:m.clientWidth||600,h:m.clientHeight||420}}
+function updateFromPixel(x,y){const p=pixelToLatLng(x,y,state.z);state.lat=clamp(p.lat,-85,85);state.lon=((p.lon+540)%360)-180}
+function queue(){if(renderQueued)return;renderQueued=true;requestAnimationFrame(()=>{renderQueued=false;draw()})}
+function setOpacity(v){state.alpha=clamp(+v/100,0,1);e.old.el.style.opacity=state.alpha;by('fade').value=v;by('mobileFade').value=v;by('pct').textContent=v+'%';by('mobilePct').textContent=v+'%'}
+function reportTiles(){let msg='';if(!firstTile){msg='Connecting to map imagery…';}else{const modern=e.modern.ok,older=e.old.ok;
+if(modern&&older)msg='Both county aerial years loaded';else if(modern)msg='2024 loaded • waiting for 1997';else if(older)msg='1997 loaded • waiting for 2024';else msg='Street map loaded • waiting for county aerials';}
+const bad= e.old.errors>3||e.modern.errors>3;by('mapNotice').classList.toggle('good',firstTile && !bad);
+by('mapNotice').querySelector('.map-top').textContent=bad?'Aerial connection issue':msg;
+by('mapNotice').querySelector('.message').textContent=bad?'At least one county imagery layer failed to load. You can still pan the street map or use the official GIS links below. Try GitHub Pages in Safari if using an in-app file preview.':firstTile?'Move around Turner, blend years, or tap a point to check its parcel.':'If this message does not change, the file preview may block scripts or network access. Open through Safari or GitHub Pages.';
+}
+function draw(){if(!m.clientWidth||!m.clientHeight)return;
+const {w,h}=dimensions(),center=latLngToPixel(state.lat,state.lon,state.z),minX=Math.floor((center.x-w/2)/T)-1,maxX=Math.floor((center.x+w/2)/T)+1,minY=Math.max(0,Math.floor((center.y-h/2)/T)-1),maxY=Math.min(2**state.z-1,Math.floor((center.y+h/2)/T)+1);
+for(const layer of configurations){
+const visible=new Set(),n=2**state.z;
+for(let iy=minY;iy<=maxY;iy++)for(let ix=minX;ix<=maxX;ix++){
+ const x=((ix%n)+n)%n,key=state.z+':'+x+':'+iy;visible.add(key);
+ let im=layer.tiles.get(key);
+ if(!im){im=document.createElement('img');im.alt='';im.draggable=false;im.decoding='async';im.dataset.k=key;im.onload=()=>{layer.ok++;if(!firstTile){firstTile=true;reportTiles()}else if(layer.ok===1)reportTiles()};im.onerror=()=>{layer.errors++;im.style.display='none';if(layer.errors===4)reportTiles()};im.src=layer.url(state.z,x,iy);layer.tiles.set(key,im);layer.el.appendChild(im)}
+ im.style.left=Math.round(ix*T-center.x+w/2)+'px';im.style.top=Math.round(iy*T-center.y+h/2)+'px';
+}
+for(const [k,im] of layer.tiles)if(!visible.has(k)){im.remove();layer.tiles.delete(k)}
+}
+by('coords').textContent=state.lat.toFixed(5)+', '+state.lon.toFixed(5)+' • z'+state.z;
+drawMarkers();}
+function drawMarkers(){const {w,h}=dimensions(),c=latLngToPixel(state.lat,state.lon,state.z),root=by('markerLayer');root.replaceChildren();for(const a of [...sites.map(s=>({...s,saved:true})),...(temp?[temp]:[])]){const p=latLngToPixel(a.lat,a.lon,state.z),x=w/2+p.x-c.x,y=h/2+p.y-c.y;if(x<0||x>w||y<0||y>h)continue;let d=document.createElement('div');d.className='pin'+(a.saved?' saved':'');d.style.left=x+'px';d.style.top=y+'px';root.appendChild(d)}}
+function goto(lat,lon,z=16){state.lat=lat;state.lon=lon;state.z=clamp(z,MINZ,MAXZ);queue()}
+function pan(dx,dy){const c=latLngToPixel(state.lat,state.lon,state.z);updateFromPixel(c.x-dx,c.y-dy);queue()}
+function zoom(dir){state.z=clamp(state.z+dir,MINZ,MAXZ);queue()}
+by('plus').onclick=()=>zoom(1);by('minus').onclick=()=>zoom(-1);
+by('street').onclick=()=>{showStreets=!showStreets;e.osm.el.style.display=showStreets?'':'none';by('street').style.background=showStreets?'':'#55624e'};
+by('fade').oninput=t=>setOpacity(t.target.value);by('mobileFade').oninput=t=>setOpacity(t.target.value);
+by('viewNew').onclick=()=>setOpacity(0);by('viewOld').onclick=()=>setOpacity(100);by('viewBlend').onclick=()=>setOpacity(50);
+const places={turner:[39.0778,-94.7035,14],gibbs:[39.0716,-94.7102,16],pierson:[39.06819,-94.70894,16]};
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>goto(...places[b.dataset.go]));
+function pt(ev){let box=m.getBoundingClientRect();return{x:ev.clientX-box.left,y:ev.clientY-box.top}}
+function distance(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+m.onpointerdown=ev=>{ev.preventDefault();m.setPointerCapture(ev.pointerId);if(pointerMap.size===0){dragged=false;movementTotal=0;}pointerMap.set(ev.pointerId,pt(ev));m.classList.add('dragging');if(pointerMap.size===2){let [a,b]=[...pointerMap.values()];gestureSize=distance(a,b)}};
+m.onpointermove=ev=>{if(!pointerMap.has(ev.pointerId))return;ev.preventDefault();const prev=pointerMap.get(ev.pointerId),now=pt(ev);pointerMap.set(ev.pointerId,now);if(pointerMap.size===1){const dx=now.x-prev.x,dy=now.y-prev.y;if(Math.abs(dx)+Math.abs(dy)>0){pan(dx,dy);movementTotal+=Math.hypot(dx,dy);if(movementTotal>6)dragged=true}}
+else if(pointerMap.size===2){let [a,b]=[...pointerMap.values()];let size=distance(a,b);if(gestureSize&&size>gestureSize*1.35){zoom(1);gestureSize=size;gestures++}else if(gestureSize&&size<gestureSize/1.35){zoom(-1);gestureSize=size;gestures++}dragged=true}};
+m.onpointerup=ev=>{const wasOne=pointerMap.size===1;const xy=pt(ev);pointerMap.delete(ev.pointerId);if(!pointerMap.size)m.classList.remove('dragging');if(wasOne&&!dragged&&gestures===0){const {w,h}=dimensions(),c=latLngToPixel(state.lat,state.lon,state.z),ll=pixelToLatLng(c.x+xy.x-w/2,c.y+xy.y-h/2,state.z);selectPoint(ll.lat,ll.lon)}if(!pointerMap.size)gestures=0};
+m.onpointercancel=ev=>{pointerMap.delete(ev.pointerId);m.classList.remove('dragging')};
+m.addEventListener('wheel',ev=>{ev.preventDefault();zoom(ev.deltaY<0?1:-1)},{passive:false});
+function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function saveSites(){try{localStorage.setItem(storageKey,JSON.stringify(sites))}catch(_){}}
+function showSites(){by('count').textContent=sites.length;by('list').innerHTML=sites.length?'':'<p>No sites saved yet.</p>';sites.forEach((s,i)=>{let div=document.createElement('div');div.className='item';div.innerHTML=`<strong>${i+1}. ${escapeHTML(s.address||'Unverified map point')}</strong><div class="sm">${s.lat.toFixed(5)}, ${s.lon.toFixed(5)}</div><div class="sm">Parcel ${escapeHTML(s.parcel||'unverified')} • ${escapeHTML(s.owner||'owner not verified')}</div>${s.note?'<p>'+escapeHTML(s.note)+'</p>':''}`;let b1=document.createElement('button');b1.textContent='View pin';b1.onclick=()=>goto(s.lat,s.lon,17);let b2=document.createElement('button');b2.textContent='Remove';b2.className='minor';b2.style.marginLeft='6px';b2.onclick=()=>{sites.splice(i,1);saveSites();showSites();queue()};div.append(b1,b2);by('list').append(div)});queue()}
+const parcelBase='https://gisweb.wycokck.org/arcgis/rest/services/GISPUB/UGMAPS_4_V02/FeatureServer/0/query';
+async function selectPoint(lat,lon){temp={lat,lon};queue();const current=temp;lastSelection={lat,lon,owner:'',parcel:'',address:'',note:''};by('parcelBox').style.display='block';by('parcelHeading').textContent='Checking parcel…';by('parcelDetail').textContent=`${lat.toFixed(6)}, ${lon.toFixed(6)}`;by('lookupStatus').textContent='Looking up county parcel record…';
+const p=new URLSearchParams({f:'json',geometry:JSON.stringify({x:lon,y:lat,spatialReference:{wkid:4326}}),geometryType:'esriGeometryPoint',inSR:'4326',spatialRel:'esriSpatialRelIntersects',outFields:'OWNER_NAME,PARCEL,PARCEL_NBR,NUMB,DIR,ST_NAME,SUFX,ACRE',returnGeometry:'false',resultRecordCount:'1'});
+try{const ct=new AbortController(),timer=setTimeout(()=>ct.abort(),10000);let response;try{response=await fetch(parcelBase+'?'+p.toString(),{signal:ct.signal})}finally{clearTimeout(timer)}if(!response.ok)throw Error('county server responded '+response.status);const j=await response.json();if(j.error)throw Error(j.error.message||'County returned an error');if(temp!==current)return;const a=j.features?.[0]?.attributes;if(a){lastSelection={lat,lon,owner:a.OWNER_NAME||'',parcel:a.PARCEL||a.PARCEL_NBR||'',address:[a.NUMB,a.DIR,a.ST_NAME,a.SUFX].filter(Boolean).join(' '),note:''};by('parcelHeading').textContent=lastSelection.address||'Unaddressed parcel';by('parcelDetail').textContent=`County owner: ${lastSelection.owner||'not listed'} • Parcel: ${lastSelection.parcel||'not listed'} • Acres: ${a.ACRE||'not listed'}`;by('lookupStatus').textContent='Parcel located. Verify owner and mailing address with the official appraiser before contact.';}else{by('parcelHeading').textContent='No parcel at this exact point';by('lookupStatus').textContent='You can save the coordinate and research manually.';}}
+catch(err){if(temp!==current)return;by('lookupStatus').textContent='County parcel lookup unavailable here. You can still save the GPS point.';by('parcelHeading').textContent='Map location (unverified parcel)';by('parcelDetail').textContent=`${lat.toFixed(6)}, ${lon.toFixed(6)} • Check Wyandotte County appraiser manually.`}}
+by('save').onclick=()=>{if(!lastSelection)return;sites.push({...lastSelection,note:by('note').value.trim()});by('note').value='';saveSites();showSites();by('lookupStatus').textContent='Saved to your local research list.'};
+by('wipe').onclick=()=>{if(confirm('Delete all saved research locations on this browser?')){sites=[];saveSites();showSites()}};
+by('csv').onclick=()=>{const rows=[['address','county_owner_unverified','parcel','latitude','longitude','notes','permission_status'],...sites.map(s=>[s.address,s.owner,s.parcel,s.lat,s.lon,s.note,'not requested'])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='turner_research_sites.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+by('copyLetter').onclick=async()=>{const s='Hello, I enjoy researching Turner-area history and responsibly metal detecting for old coins and everyday artifacts. I’m writing to ask whether you would consider giving me permission to detect on part of your property on a date convenient for you. I would only visit with permission, respect any conditions, fill any holes and remove any trash. I’d be happy to share the history of anything interesting I find. No pressure at all if you prefer not. Thank you for your time.';try{await navigator.clipboard.writeText(s);by('letterStatus').textContent='Copied. Personalize your request before sending.'}catch(_){by('letterStatus').textContent=s}};
+setOpacity(50);draw();showSites();reportTiles();addEventListener('resize',queue);
+setTimeout(()=>{if(!firstTile){by('mapNotice').querySelector('.map-top').textContent='Map images could not load';by('mapNotice').querySelector('.message').textContent='The viewer started, but online map tiles did not load. Open the page through HTTPS on GitHub Pages in Safari and check your connection. See the source links in the research panel.'}},9000);
+})();
+</script>
+</body></html>
